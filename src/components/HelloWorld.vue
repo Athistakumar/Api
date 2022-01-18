@@ -1,23 +1,28 @@
 <template>
    <div>
            
-        <!-- <DataTable  v-for="data of products" :key='data.uid' showGridlines responsiveLayout="scroll">
+         <DataTable  :value="products"  v-model="products" showGridlines responsiveLayout="scroll">
             <template #header>
                   Company User Details List
             </template>
             
             <Column field="id" header="Id">{{data.id}}</Column>
+            <Column field="username" header="Username">{{data.username}}</Column>
+            <Column field="email" header="Email">{{data.email}}</Column>
+            <Column field="website" header="Website">{{data.website}}</Column>
+            <Column field="phone" header="Phone">{{data.phone}}</Column>
+            
           
             
             <template #footer>
                     The End
             </template>
-        </DataTable> -->
+        </DataTable> 
        
 
 
 
-         <div >
+       <!--   <div >
           <table class="p-d-fluid p-p-3" >
             <tr class="p-d-fleid">
               <td class="p-mb-3">Id</td>
@@ -34,7 +39,7 @@
               <td>{{data.address.street}}</td>
             </tr>
           </table>
-        </div> 
+        </div>  -->
 	</div>
 </template>
 
@@ -64,7 +69,7 @@ export default {
         console.log(error);
       };
     }
-    }
+    } ,
 
 
 
@@ -72,12 +77,20 @@ export default {
    fetch("https://jsonplaceholder.typicode.com/users")
       .then((res) => res.json())
       .then((data) => {
+        
         this.products = data;
         
         console.log(this.products);
        });
        
-  } */
+  }, */
+   mounted() {
+        this.product.then(data => this.products = data);
+    },
+
+
+
+                       
 
 }
 </script>
